@@ -34,7 +34,7 @@ namespace fk {
 
 	void Application::updateLoop( )
 	{
-		while (mGameExit)
+		while (!mGameExit)
 		{
 			update( );
 		}
