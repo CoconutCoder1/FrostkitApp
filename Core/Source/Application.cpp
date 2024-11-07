@@ -7,7 +7,7 @@ namespace fk {
 	void Application::initialize( )
 	{
 		mMainWindow.addMessageCallback( messageCallback );
-		mMainWindow.create( L"Frostkit Engine", 800, 600 );
+		mMainWindow.create( L"Frostkit App", 800, 600 );
 
 		mGameThread.setName( L"GameThread" );
 	}
@@ -27,9 +27,22 @@ namespace fk {
 		mGameThread.wait( );
 	}
 
-	void Application::updateProc( void* dataPtr )
+	void Application::update( )
 	{
 
+	}
+
+	void Application::updateLoop( )
+	{
+		while (mGameExit)
+		{
+			update( );
+		}
+	}
+
+	void Application::updateProc( void* dataPtr )
+	{
+		((Application*)dataPtr)->updateLoop( );
 	}
 
 	void Application::messageCallback( pf::Window::MessageType msgType, const pf::Window::MessageArgs& args )

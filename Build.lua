@@ -16,7 +16,9 @@ workspace "Frostkit"
     filter "platforms:Win64"
         architecture "x86_64"
         defines { "FK_WIN64" }
+    
+    startproject "Sandbox"
 
 include "Core/Build-Core.lua"
-include "Kernel/Build-Kernel.lua"
 include "Sandbox/Build-Sandbox.lua"
+include "Kernel/Build-Kernel.lua"

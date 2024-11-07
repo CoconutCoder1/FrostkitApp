@@ -16,8 +16,10 @@ namespace fk {
         void run( );
 
     private:
-        static void updateProc( void* dataPtr );
+        void update( );
+        void updateLoop( );
 
+        static void updateProc( void* dataPtr );
         static void messageCallback( pf::Window::MessageType msgType, const pf::Window::MessageArgs& args );
 
     private:
