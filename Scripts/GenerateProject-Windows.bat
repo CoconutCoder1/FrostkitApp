@@ -1,0 +1,1 @@
+premake5.exe --file="../Build.lua" vs2022
