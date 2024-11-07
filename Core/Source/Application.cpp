@@ -19,7 +19,7 @@ namespace fk {
 
 	void Application::run( )
 	{
-		mGameThread.dispatch( new pf::JobSet( updateProc, this ) );
+		mGameThread.dispatch( updateProc, this );
 		
 		while (pf::update( ));
 

@@ -6,24 +6,41 @@ namespace fk::pf {
 
 	DWORD WINAPI Thread::Impl::threadProc( PVOID paramPtr )
 	{
-		auto* jobPtr = (JobSet*)paramPtr;
-		jobPtr->procFn( jobPtr->dataPtr );
-		delete jobPtr;
+		auto threadPtr = (Thread::Impl*)paramPtr;
+
+		SetThreadDescription( GetCurrentThread( ), threadPtr->mNameStr.c_str( ) );
+
+		threadPtr->mFuncPtr( threadPtr->mParamPtr );
 
 		return 0;
 	}
 
-	void Thread::Impl::dispatch( JobSet* jobPtr )
+	void Thread::Impl::dispatch( ThreadProc funcPtr, void* paramPtr )
 	{
-		mHandle = CreateThread( NULL, 0, threadProc, jobPtr, 0, &mThreadId );
+		mFuncPtr = funcPtr;
+		mParamPtr = paramPtr;
+
+		if (mHandle)
+			wait( );
+
+		mHandle = CreateThread( NULL, 0, threadProc, this, 0, &mThreadId );
 	}
 
-	void Thread::Impl::wait( uint32_t timeoutMS )
+	void Thread::Impl::wait( )
 	{
-		if (mHandle)
-		{
-			WaitForSingleObject( mHandle, timeoutMS );
-		}
+		WaitForSingleObject( mHandle, INFINITE );
+		CloseHandle( mHandle );
+		mHandle = NULL;
+	}
+
+	void Thread::Impl::setName( const std::wstring& nameStr )
+	{
+		mNameStr = nameStr;
+	}
+
+	std::wstring Thread::Impl::getName( ) const
+	{
+		return mNameStr;
 	}
 
 	uint32_t Thread::Impl::getThreadId( ) const

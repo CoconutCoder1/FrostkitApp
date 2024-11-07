@@ -13,24 +13,24 @@ namespace fk::pf {
 
 	Thread::~Thread( ) = default;
 
-	void Thread::dispatch( JobSet* jobPtr )
+	void Thread::dispatch( ThreadProc funcPtr, void* paramPtr )
 	{
-		mImpl->dispatch( jobPtr );
+		mImpl->dispatch( funcPtr, paramPtr );
 	}
 
-	void Thread::wait( uint32_t timeoutMS )
+	void Thread::wait( )
 	{
-		mImpl->wait( timeoutMS );
+		mImpl->wait( );
 	}
 
 	void Thread::setName( const std::wstring& nameStr )
 	{
-		mNameStr = nameStr;
+		mImpl->setName( nameStr );
 	}
 
 	std::wstring Thread::getName( ) const
 	{
-		return mNameStr;
+		return mImpl->getName( );
 	}
 
 	uint32_t Thread::getThreadId( ) const
