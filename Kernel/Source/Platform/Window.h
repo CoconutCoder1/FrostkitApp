@@ -38,6 +38,7 @@ namespace fk::pf {
 
 		void addMessageCallback( MessageCallback callback );
 
+		static bool getKeyState( uint8_t keyCode );
 
 	private:
 		std::unique_ptr<Impl> mImpl;

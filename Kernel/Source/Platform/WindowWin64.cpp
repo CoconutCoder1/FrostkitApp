@@ -99,6 +99,11 @@ namespace fk::pf {
 		mMessageCallbacks.push_back( callback );
 	}
 
+	bool Window::Impl::getKeyState( uint8_t keyCode )
+	{
+		return GetKeyState( keyCode ) < 0;
+	}
+
 }
 
 #endif

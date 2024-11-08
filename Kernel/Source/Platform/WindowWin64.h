@@ -19,6 +19,8 @@ namespace fk::pf {
 
 		void addMessageCallback( Window::MessageCallback callback );
 
+		static bool getKeyState( uint8_t keyCode );
+
 	private:
 		static LRESULT CALLBACK wndProc( HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam );
 

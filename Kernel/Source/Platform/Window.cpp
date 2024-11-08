@@ -47,4 +47,9 @@ namespace fk::pf {
 		mImpl->addMessageCallback( callback );
 	}
 
+	bool Window::getKeyState( uint8_t keyCode )
+	{
+		return Impl::getKeyState( keyCode );
+	}
+
 }
