@@ -3,7 +3,7 @@ project "Sandbox"
     cppdialect "C++20"
 
     files { "Source/**.h", "Source/**.cpp" }
-    includedirs { "Source/", "../Core/Source", "../Kernel/Source" }
+    includedirs { "Source/", "../Core", "../Kernel" }
 
     links { "Core", "Kernel" }
 

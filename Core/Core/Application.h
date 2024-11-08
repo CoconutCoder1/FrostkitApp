@@ -3,8 +3,8 @@
 #include "Object.h"
 #include "Singleton.h"
 
-#include <Platform/Window.h>
-#include <Platform/Thread.h>
+#include <Kernel/Platform/Window.h>
+#include <Kernel/Platform/Thread.h>
 
 namespace fk {
 

@@ -1,7 +1,7 @@
-#include "Application.h"
+#include <Core/Application.h>
 
-#include <Platform/Platform.h>
-#include <Platform/Window.h>
+#include <Kernel/Platform/Platform.h>
+#include <Kernel/Platform/Window.h>
 
 namespace fk {
 

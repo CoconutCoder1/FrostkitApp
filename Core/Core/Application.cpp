@@ -1,6 +1,6 @@
 #include "Application.h"
 
-#include <Platform/Platform.h>
+#include <Kernel/Platform/Platform.h>
 
 namespace fk {
 

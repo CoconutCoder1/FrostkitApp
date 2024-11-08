@@ -3,5 +3,4 @@ project "Kernel"
     language "C++"
     cppdialect "C++20"
 
-    files { "Source/**.h", "Source/**.cpp" }
-    includedirs { "Source/" }
+    files { "Kernel/**.h", "Kernel/**.cpp" }
